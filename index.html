@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<style>
+		p {
+			text-align: center;
+			color: red;
+			font-style: italic;
+		}
+
+		p1 {
+			text-align: center;
+			 color: black;
+		}
+
+		h1 {
+			text-align: center;
+			background-color: crimson;
+			color: white;
+			text-decoration: underline;
+		}
+
+		button {
+		color: white;
+		background-color: red;
+		text-align: center;
+		}
+
+		.myClass {
+			color: white;
+			font-style: Sans serif;
+			background-color: crimson;
+			padding: 20px;
+			text-align: center;
+			margin: 10px;
+		}
+	</style>
+
+	<h1 id="main-title" >The Infinite Pancake Mix</h1>
+	
+	<p>CLICK THE RED BUTTON AS FAST AS YOU CAN FOR UNLIMITED PANCAKE RECIPIES!</p>
+	
+	<button onclick="showContent()">Button</button>
+	
+	<p1>Equipment Needed: Mixing Bowl, Whisk, Griddle, Spatula, Skillet.</p1>
+<p>
+	<img src="https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/user-collections/my-colelction-image/2015/12/recipe-image-legacy-id--1273473_7.jpg?itok=104sXOeD" alt="pancake" align="middle"> 
+</p>
+	<template>
+		<div class="myClass">Easy Peasy: </div>
+	</template>
+
+	<script>
+		var myArr = ["In a large bowl, sift together the flour, baking powder, salt and sugar. Make a well in the center and pour in the milk, egg and melted butter mix until smooth. Then heat a lightly oiled griddle or frying pan over medium high heat. Pour or scoop the batter onto the griddle or pan, using approximately 1/4 cup for each pancake."];
+
+function showContent() {
+  var temp, item, a, i;
+  //get the 
+  temp = document.getElementsByTagName("template")[0];
+  //get the DIV element
+  item = temp.content.querySelector("div");
+  //for each item in the array:
+  for (i = 0; i < myArr.length; i++) {
+    //Create a new node, based on the template:
+    a = document.importNode(item, true);
+    //Add data from the array:
+    a.textContent += myArr[i];
+    //append the new node wherever you like:
+    document.body.appendChild(a);
+  }
+}
+	</script>
+</body>
+</html>
